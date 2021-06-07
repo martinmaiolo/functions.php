@@ -1,6 +1,12 @@
 // disable google fonts
 add_filter( 'elementor/frontend/print_google_fonts', '__return_false' );
 
+// disable elementor title
+function ele_disable_page_title( $return ) {
+   return false;
+}
+add_filter( 'hello_elementor_page_title', 'ele_disable_page_title' );
+
 // disable eicons
 add_action( 'elementor/frontend/after_enqueue_styles', 'js_dequeue_eicons' );
 function js_dequeue_eicons() {
